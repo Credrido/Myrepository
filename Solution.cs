@@ -1,49 +1,65 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleApp14
+namespace ConsoleApp9
 {
     class Program
     {
         static void Main(string[] args)
         {
-            
+
         }
     }
 
     class Onedimensional
     {
-        public void NumberOne(string[] args)
+        public void Massive1(string[] args)
         {
-            Console.WriteLine("Введите длину массива:");
+            Console.WriteLine("Хотите заполнить массив сами?");
+
             int Length = int.Parse(Console.ReadLine());
 
             int[] array = new int[Length];
 
             bool rand = false;
 
-            Console.WriteLine("Хотите заполнить массив сами?");
+            int sum = 0;
 
             if (Console.ReadLine() == "Да")
             {
                 rand = true;
             }
-            if(true)
+            if (rand == true)
             {
-                for(int i = 0; i < Length;i++)
+                for (int i = 0; i < Length; i++)
                 {
+                    Console.WriteLine("Введите элемент массива: ");
                     array[i] = int.Parse(Console.ReadLine());
+
+                    sum += array[i];
+                }
+            }
+
+            Console.WriteLine("Ваш массив: ");
+
+            Console.WriteLine(array);
+
+            int averagevalue = sum / Length;
+
+            Console.WriteLine("Среднее значение массива: " + averagevalue);
+
+            Console.WriteLine("Исправленный массив: ");
+
+            for (int i = 0; i < Length; i++)
+            {
+                if (array[i] < 100 && array[i] > -100)
+                {
+                    Console.WriteLine(array[i]);
                 }
             }
         }
-    }
-
-    class Twodimensional
-    {
-
-    }
-
-    class Stepped
-    {
-
     }
 }
