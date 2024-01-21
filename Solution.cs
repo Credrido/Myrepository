@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp9
 {
-    class Program
+    class Onedimensional
     {
         static void Main(string[] args)
         {
 
         }
-    }
-
-    class Onedimensional
-    {
         public void Massive1(string[] args)
         {
-            Console.WriteLine("Хотите заполнить массив сами?");
+            Console.WriteLine("Введите длину массива:");
 
             int Length = int.Parse(Console.ReadLine());
 
@@ -27,6 +23,8 @@ namespace ConsoleApp9
             bool rand = false;
 
             int sum = 0;
+
+            Console.WriteLine("Хотите заполнить массив сами?");
 
             if (Console.ReadLine() == "Да")
             {
