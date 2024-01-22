@@ -6,56 +6,34 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp9
 {
-    class Onedimensional
+    class Programe
     {
         static void Main(string[] args)
         {
-
+            Onedimensioanl array = new Onedimensioanl(true);
         }
-        public void Massive1(string[] args)
+    }
+    class Onedimensional
+    {
+        private int[] array;
+        private bool rand;
+        Console.WriteLine("Хотите заполнить массив сами? Введите Да или Нет");
+        if(Console.ReadLine() == "Нет")
         {
-            Console.WriteLine("Введите длину массива:");
-
-            int Length = int.Parse(Console.ReadLine());
-
-            int[] array = new int[Length];
-
-            bool rand = false;
-
-            int sum = 0;
-
-            Console.WriteLine("Хотите заполнить массив сами?");
-
-            if (Console.ReadLine() == "Да")
+            rand = false;
+        }
+        
+        Filling(rand)
+        {
+            if(rand == true)
             {
-                rand = true;
-            }
-            if (rand == true)
-            {
-                for (int i = 0; i < Length; i++)
+                Console.WriteLine("Введите длину массива:");
+                
+                int Length = int.Parse(Console.ReadLine());
+                for(i = 0;i<Length;i++)
                 {
-                    Console.WriteLine("Введите элемент массива: ");
+                    Console.WriteLine("Введите элемент массива:")
                     array[i] = int.Parse(Console.ReadLine());
-
-                    sum += array[i];
-                }
-            }
-
-            Console.WriteLine("Ваш массив: ");
-
-            Console.WriteLine(array);
-
-            int averagevalue = sum / Length;
-
-            Console.WriteLine("Среднее значение массива: " + averagevalue);
-
-            Console.WriteLine("Исправленный массив: ");
-
-            for (int i = 0; i < Length; i++)
-            {
-                if (array[i] < 100 && array[i] > -100)
-                {
-                    Console.WriteLine(array[i]);
                 }
             }
         }
