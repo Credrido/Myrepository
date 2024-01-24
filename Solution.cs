@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp9
 {
-    class Programe
+    class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Задачи на одномерный массив");
+
+            Console.WriteLine();
+
             Onedimensional Array = new Onedimensional();
 
             Console.WriteLine("Введите длину массива:");
@@ -31,7 +35,7 @@ namespace ConsoleApp9
 
             if (randif == true)
             {
-                Array.Createarray(array,Length);
+                Array.Createarray(array, Length);
             }
             else
             {
@@ -46,16 +50,113 @@ namespace ConsoleApp9
 
             Array.Getmiddle(array);
 
-            Array.Deletebigger100(array,Length);
+            Array.Deletebigger100(array, Length);
+
+            Console.WriteLine();
+
+            Console.WriteLine();
+
+            Console.WriteLine();
+
+
+
+            Console.WriteLine("Задачи на двумерный массив");
+
+            Console.WriteLine();
+
+            Twodimensional Array2 = new Twodimensional();
+
+            Console.WriteLine("Введите кол-во строк:");
+
+            int rows = int.Parse(Console.ReadLine());
+
+            Console.WriteLine();
+
+            Console.WriteLine("Введите кол-во столбцов:");
+
+            int columns = int.Parse(Console.ReadLine());
+
+            Console.WriteLine();
+
+            int[,] array2 = new int[rows,columns];
+
+            bool randif2 = true;
+
+            Console.WriteLine("Хотите заполнить массив сами? Введите Да или Нет");
+
+            if (Console.ReadLine() == "Нет")
+            {
+                randif2 = false;
+            }
+
+            if (randif2 == true)
+            {
+                Array2.Createarray(array2,rows,columns);
+            }
+            else
+            {
+                Array2.Createrandomarray(array2, rows,columns);
+            }
+
+            Array2.Print(array2);
+
+            Console.WriteLine();
+
+            Console.WriteLine();
+
+            Array2.Getmiddle(array2);
+
+            Array2.Print2(array2);
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+
+
+            Console.WriteLine("Задачи на неровный массив");
+
+            Console.WriteLine();
+
+            Uneven Array3 = new Uneven();
+
+            Console.WriteLine("Введите кол-во массивов:");
+
+            int Len = int.Parse(Console.ReadLine());
+
+            Console.WriteLine();
+
+            int[][] array3 = new int[Len][];
+
+            bool randif3 = true;
+
+            Console.WriteLine("Хотите заполнить массив сами? Введите Да или Нет");
+
+            if (Console.ReadLine() == "Нет")
+            {
+                randif3 = false;
+            }
+
+            if (randif3 == true)
+            {
+                Array3.Createarray(array3);
+            }
+            else
+            {
+                Array3.Createrandomarray(array3);
+            }
+
+            Array3.Print(array3);
+
+            Array3.Getmiddle(array3);
         }
     }
 }
-
 
 class Onedimensional
     {
         public int[] Createarray(int[] array, int Length)
         {
+            Console.WriteLine();
             for (int i = 0; i < Length; i++)
             {
                 Console.WriteLine("Введите элемент массива:");
@@ -103,9 +204,9 @@ class Onedimensional
             return result;
         }
 
-        public int[] Deletebigger100(int [] array,int Length)
+        public int[] Deletebigger100(int[] array, int Length)
         {
-            Console.WriteLine("Массив без чисел больше 100 по модулю");
+            Console.WriteLine("Массив без чисел больше 100 по модулю:");
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] < 100 && array[i] > -100)
@@ -121,7 +222,7 @@ class Onedimensional
 
         public int[] Print(int[] array)
         {
-            Console.WriteLine("Исходный массив");
+            Console.WriteLine("Исходный массив:");
 
             for (int i = 0; i < array.Length; i++)
             {
@@ -133,8 +234,9 @@ class Onedimensional
 
 class Twodimensional
     {
-        public int [,] Createarray(int[,] array2,int rows, int columns)
+        public int[,] Createarray(int[,] array2, int rows, int columns)
         {
+            Console.WriteLine();
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
@@ -151,7 +253,7 @@ class Twodimensional
             return array2;
         }
 
-        public int[,] Createrandomarray(int[,] array2,int rows,int columns)
+        public int[,] Createrandomarray(int[,] array2, int rows, int columns)
         {
             Random random2 = new Random();
 
@@ -175,11 +277,11 @@ class Twodimensional
             {
                 for (int j = 0; j < array2.GetLength(1); j++)
                 {
-                    sum += array2[i,j];
+                    sum += array2[i, j];
                 }
             }
 
-            decimal result = sum /(array2.GetLength(0) * array2.GetLength(1));
+            decimal result = sum / (array2.GetLength(0) * array2.GetLength(1));
 
             Console.WriteLine("Среднее значение массива:");
 
@@ -231,6 +333,7 @@ class Twodimensional
 
             return array2;
         }
+
     }
 
 class Uneven
@@ -283,8 +386,6 @@ class Uneven
                     int j = random3.Next(-250, 250);
 
                     array3[i][l] = j;
-
-                    Console.WriteLine();
                 }
                 Console.WriteLine();
             }
@@ -292,23 +393,54 @@ class Uneven
         }
         public decimal Getmiddle(int[][] array3)
         {
+            Console.WriteLine();
+
             decimal sum = 0;
+
+            int counter = 0;
 
             for (int i = 0; i < array3.Length; i++)
             {
+                int Len = array3[i].Length;
+
+                int summ = array3[i].Sum();
+
+                Console.WriteLine($"Среднее значение массива {i}:");
+
+                Console.WriteLine(summ / Len);
+
+                Console.WriteLine();
+
+                counter += array3[i].Length;
                 for (int j = 0; j < array3[i].Length; j++)
                 {
                     sum += array3[i][j];
                 }
             }
-            decimal result = sum;
 
-            Console.WriteLine("Среднее значение массива:");
+            decimal result = sum/counter;
+
+            Console.WriteLine("Среднее значение всего массива:");
 
             Console.WriteLine(result);
 
             Console.WriteLine();
 
             return result;
+        }
+
+        public int[][] Print(int[][] array3)
+        {
+            Console.WriteLine("Исходный массив:");
+
+            for (int i = 0; i < array3.Length; i++)
+            {
+                for (int l = 0; l < array3[i].Length; l++)
+                {
+                    Console.Write($"{array3[i][l]} \t");
+                }
+                Console.WriteLine();
+            }
+            return array3;
         }
     }
